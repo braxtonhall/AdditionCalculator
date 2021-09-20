@@ -6,7 +6,7 @@ import {testFolder} from "@ubccpsc310/folder-test";
 chai.use(chaiAsPromised);
 
 type Input = number[];
-type Output = Promise<number>;
+type Output = number;
 type Error = "TooSimple" | "TooLarge";
 
 describe("AdditionCalculator", function () {
@@ -44,7 +44,7 @@ describe("AdditionCalculator", function () {
 
     testFolder<Input, Output, Error>(
         "Add Dynamic",
-        (input: Input): Output => {
+        (input: Input): Promise<Output> => {
             const additionCalculator = new AdditionCalculator();
             return additionCalculator.add(input);
         },

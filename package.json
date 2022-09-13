@@ -7,17 +7,17 @@
   "author": "Katharine <kekerr@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "@tsconfig/node14": "^1.0.1",
-    "@types/chai": "^4.2.21",
-    "@types/chai-as-promised": "^7.1.4",
-    "@types/mocha": "^9.0.0",
-    "@types/node": "^16.9.0",
-    "@ubccpsc310/folder-test": "^1.0.1",
-    "chai": "^4.3.4",
+    "@tsconfig/node16": "^1.0.3",
+    "@types/chai": "^4.3.3",
+    "@types/chai-as-promised": "^7.1.5",
+    "@types/mocha": "^9.1.1",
+    "@types/node": "^18.7.17",
+    "@ubccpsc310/folder-test": "^2.0.0",
+    "chai": "^4.3.6",
     "chai-as-promised": "^7.1.1",
-    "mocha": "^9.1.1",
-    "ts-node": "^10.2.1",
-    "typescript": "^4.4.2"
+    "mocha": "^10.0.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.8.3"
   },
   "scripts": {
     "test": "mocha --require ts-node/register --timeout 10000 test/**/*.spec.ts"

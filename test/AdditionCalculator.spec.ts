@@ -1,12 +1,12 @@
 import chai, { expect } from "chai";
 import chaiAsPromised from "chai-as-promised";
 import {AdditionCalculator, TooLarge, TooSimple} from "../src/AdditionCalculator";
-import {testFolder} from "@ubccpsc310/folder-test";
+import {folderTest} from "@ubccpsc310/folder-test";
 
 chai.use(chaiAsPromised);
 
 type Input = number[];
-type Output = number;
+type Output = Promise<number>;
 type Error = "TooSimple" | "TooLarge";
 
 describe("AdditionCalculator", function () {
@@ -42,9 +42,9 @@ describe("AdditionCalculator", function () {
         });
     });
 
-    testFolder<Input, Output, Error>(
+    folderTest<Input, Output, Error>(
         "Add Dynamic",
-        (input: Input): Promise<Output> => {
+        (input: Input): Output => {
             const additionCalculator = new AdditionCalculator();
             return additionCalculator.add(input);
         },
@@ -52,7 +52,7 @@ describe("AdditionCalculator", function () {
         {
             errorValidator: (error): error is Error =>
                 error === "TooSimple" || error === "TooLarge",
-            assertOnError: ((expected, actual) => {
+            assertOnError: ((actual, expected) => {
                 if (expected === "TooSimple") {
                     expect(actual).to.be.instanceof(TooSimple);
                 } else if (expected === "TooLarge") {
